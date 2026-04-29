@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Build Backend
-FROM php:8.1-fpm-alpine
+FROM php:8.2-fpm-alpine
 
 # Install system dependencies
 RUN apk add --no-cache \
@@ -40,7 +40,7 @@ COPY --from=frontend-builder /app/public/build ./public/build
 RUN composer install --no-dev --optimize-autoloader
 
 # Setup permissions
-RUN mkdir -p storage/framework/{sessions,views,cache} bootstrap/cache
+RUN mkdir -p storage/app storage/framework/{sessions,views,cache} bootstrap/cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
