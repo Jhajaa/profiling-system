@@ -46,6 +46,12 @@
             "@php artisan config:clear --ansi",
             "@php artisan test"
         ],
+        "git-push": [
+            "git remote set-url origin https://github.com/Jhajaa/profiling-system.git",
+            "git add .",
+            "git commit -m \"Prepare for Render deployment\"",
+            "git push origin master"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

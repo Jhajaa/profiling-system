@@ -40,14 +40,22 @@ COPY --from=frontend-builder /app/public/build ./public/build
 RUN composer install --no-dev --optimize-autoloader
 
 # Setup permissions
+RUN mkdir -p storage/framework/{sessions,views,cache} bootstrap/cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
-RUN chmod +x /var/www/docker/run.sh
+RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 # Copy Nginx config
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf
+
+# Copy Supervisor config
+COPY docker/supervisord.conf /etc/supervisord.conf
+
+# Prepare run script
+COPY docker/run.sh /usr/local/bin/run.sh
+RUN chmod +x /usr/local/bin/run.sh
 
 # Expose port
 EXPOSE 80
 
 # Start command
-CMD ["sh", "/var/www/docker/run.sh"]
+ENTRYPOINT ["/usr/local/bin/run.sh"]

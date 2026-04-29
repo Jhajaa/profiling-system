@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: profiling-system
+    env: docker
+    plan: free # Change to 'starter' or higher for production use
+    region: singapore # Choose the region closest to your users
+    buildCommand: null # Not needed for Docker
+    startCommand: null # Defined in Dockerfile CMD
+    envVars:
+      - key: APP_KEY
+        sync: false
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_URL
+        fromContext: op-url
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_DATABASE
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: SESSION_DRIVER
+        value: cookie
+      - key: CACHE_DRIVER
+        value: file
+      - key: FILESYSTEM_DISK
+        value: public
+      # Aiven MySQL SSL Configuration
+      - key: MYSQL_CA_CERT
+        sync: false
+      - key: MYSQL_ATTR_SSL_CA
+        value: /var/www/storage/app/ca.pem
