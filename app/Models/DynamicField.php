@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class DynamicField extends Model
+{
+    use HasFactory;
+
+    protected $guarded = [];
+
+    protected $casts = [
+        'options' => 'array',
+        'is_required' => 'boolean',
+        'show_in_table' => 'boolean',
+    ];
+}

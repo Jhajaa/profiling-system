@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+/* ── ROOT ── */
+.sy-root {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  min-height: 100%;
+}
+
+.sy-body {
+  padding: 20px 24px;
+}
+
+/* ── BREADCRUMB ── */
+.sy-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.sy-breadcrumb .sy-bc-link {
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color .15s;
+}
+.sy-breadcrumb .sy-bc-link:hover { color: var(--orange); }
+.sy-breadcrumb .sy-bc-sep { color: var(--border); }
+.sy-breadcrumb .sy-bc-cur {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ── CARD ── */
+.sy-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 0.5px solid var(--border);
+  overflow: hidden;
+}
+
+/* ── CARD HEADER — matches StudentList exactly ── */
+.sy-card-head {
+  padding: 18px 20px 14px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.sy-head-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.sy-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.sy-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── BUTTONS ── */
+.sy-btn-outline {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  border: 0.5px solid var(--border);
+  border-radius: 9px;
+  background: var(--card-bg);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .18s, border-color .18s, color .18s;
+}
+.sy-btn-outline:hover {
+  background: var(--bg);
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.sy-btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 9px;
+  background: var(--orange);
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .18s, box-shadow .18s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
+}
+.sy-btn-primary:hover {
+  background: var(--orange-dark);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .15);
+}
+
+/* ── FILTER ROW ── */
+.sy-filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sy-filter-tabs {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sy-ftab {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 0.5px solid var(--border);
+  background: transparent;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all .18s;
+}
+.sy-ftab:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+.sy-ftab.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+  font-weight: 600;
+}
+
+.sy-clear-btn {
+  font-size: 11px;
+  font-weight: 500;
+  color: #e74c3c;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background .15s;
+}
+.sy-clear-btn:hover { background: rgba(231, 76, 60, .07); }
+
+.sy-filter-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── SEARCH ── */
+.sy-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 180px;
+  max-width: 240px;
+}
+
+.sy-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.sy-search-input {
+  width: 100%;
+  padding: 7px 10px 7px 32px;
+  border: 0.5px solid var(--border);
+  border-radius: 9px;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color .18s, background .18s;
+}
+.sy-search-input::placeholder { color: var(--text-muted); }
+.sy-search-input:focus {
+  border-color: var(--orange);
+  background: var(--card-bg);
+}
+
+/* ── EXPANDED FILTER PANEL ── */
+.sy-filter-panel {
+  padding: 12px 20px;
+  background: var(--bg);
+  border-bottom: 0.5px solid var(--border);
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sy-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sy-filter-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.sy-filter-select {
+  padding: 5px 10px;
+  font-size: 12px;
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  cursor: pointer;
+  transition: border-color .18s;
+}
+.sy-filter-select:focus { border-color: var(--orange); }
+
+.sy-filter-count {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+/* ── TABLE ── */
+.sy-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sy-table thead tr {
+  background: var(--orange);
+}
+
+.sy-table thead th {
+  padding: 11px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.sy-table tbody tr {
+  border-bottom: 0.5px solid var(--border);
+  transition: background .15s;
+  cursor: pointer;
+}
+.sy-table tbody tr:last-child { border-bottom: none; }
+.sy-table tbody tr:hover { background: var(--bg); }
+
+.sy-table td {
+  padding: 13px 16px;
+  font-size: 12px;
+  color: var(--text);
+  vertical-align: middle;
+}
+
+/* filler rows */
+.sy-filler {
+  height: 38px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+/* ── CELL STYLES ── */
+.sy-course-title {
+  font-weight: 600;
+  color: var(--orange);
+  cursor: pointer;
+  transition: color .15s;
+}
+.sy-course-title:hover { color: var(--orange-dark); }
+
+/* course code badge */
+.sy-code-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(232, 100, 10, .08);
+  color: #854F0B;
+  border: 0.5px solid rgba(232, 100, 10, .25);
+}
+
+/* program tags */
+.sy-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  border: 0.5px solid;
+}
+.sy-tag-it  { background: rgba(232,100,10,.08); color: #854F0B; border-color: rgba(232,100,10,.25); }
+.sy-tag-cs  { background: rgba(59,109,17,.07);  color: #3B6D11; border-color: rgba(99,153,34,.3); }
+.sy-tag-is  { background: rgba(24,95,165,.07);  color: #185FA5; border-color: rgba(55,138,221,.25); }
+.sy-tag-def { background: var(--bg); color: var(--text-muted); border-color: var(--border); }
+
+/* row actions — always visible */
+.sy-row-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.sy-action-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  border: 0.5px solid var(--border);
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all .15s;
+}
+.sy-action-btn:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}
+.sy-action-btn.danger:hover {
+  background: #e74c3c;
+  border-color: #e74c3c;
+  color: #fff;
+}
+
+/* ── EMPTY STATE ── */
+.sy-empty {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 300;
+}
+
+/* ── TABLE FOOTER ── */
+.sy-table-footer {
+  padding: 12px 20px;
+  border-top: 0.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sy-count {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.sy-count strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── MODAL SECTION HEADERS ── */
+.sy-section-header {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--orange);
+  padding: 8px 14px;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 12px;
+}

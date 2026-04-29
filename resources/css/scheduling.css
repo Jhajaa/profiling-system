@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+/* ── ROOT ── */
+.sch-root {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  min-height: 100%;
+}
+
+.sch-body {
+  padding: 20px 24px;
+}
+
+/* ── CARD ── */
+.sch-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 0.5px solid var(--border);
+  overflow: hidden;
+}
+
+/* ── CARD HEADER ── */
+.sch-head {
+  padding: 18px 20px 14px;
+  border-bottom: 0.5px solid var(--border);
+  background: var(--card-bg);
+}
+
+.sch-head-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sch-school {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--heading-color);
+  line-height: 1.2;
+}
+
+.sch-month {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.sch-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── CONTROLS: BUTTONS & INPUTS ── */
+.sch-select {
+  padding: 6px 10px;
+  border: 0.5px solid var(--border);
+  border-radius: 9px;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--card-bg);
+  outline: none;
+  cursor: pointer;
+  transition: border-color .18s;
+}
+.sch-select:focus { border-color: var(--orange); }
+
+.sch-search-wrap {
+  position: relative;
+}
+
+.sch-search-icon {
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.sch-search-input {
+  padding: 6px 10px 6px 28px;
+  border: 0.5px solid var(--border);
+  border-radius: 9px;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  width: 180px;
+  transition: border-color .18s, background .18s;
+}
+.sch-search-input::placeholder { color: var(--text-muted); }
+.sch-search-input:focus {
+  border-color: var(--orange);
+  background: var(--card-bg);
+}
+
+.sch-btn-outline {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border: 0.5px solid var(--border);
+  border-radius: 9px;
+  background: var(--card-bg);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all .18s;
+}
+.sch-btn-outline:hover {
+  background: var(--bg);
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.sch-btn-dark {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 9px;
+  background: var(--orange);
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .18s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
+}
+.sch-btn-dark:hover { background: var(--orange-dark); }
+
+/* ── CALENDAR WRAPPER ── */
+.sch-cal-wrap {
+  overflow-x: auto;
+}
+
+.sch-cal-inner {
+  min-width: 900px;
+  position: relative;
+}
+
+/* ── DAY HEADER ROW ── */
+.sch-cal-header {
+  display: grid;
+  grid-template-columns: 72px repeat(6, 1fr);
+  background: var(--orange);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.sch-cal-header-time {
+  padding: 10px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .65);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.sch-cal-header-day {
+  padding: 10px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  border-left: 1px solid rgba(255, 255, 255, .15);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* ── GRID ── */
+.sch-cal-grid {
+  position: relative;
+}
+
+.sch-cal-row {
+  display: grid;
+  grid-template-columns: 72px repeat(6, 1fr);
+  height: 34px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.sch-cal-row:nth-child(even) {
+  background: var(--bg);
+}
+
+.sch-cal-time {
+  padding: 0 10px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-right: 0.5px solid var(--border);
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.sch-cal-cell {
+  border-left: 0.5px solid var(--border);
+  cursor: pointer;
+  transition: background .12s;
+}
+.sch-cal-cell:hover { background: rgba(128,128,128,.06); }
+
+/* ── SCHEDULE BLOCKS ── */
+.sch-block {
+  position: absolute;
+  border-radius: 8px;
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+  transition: opacity .15s, box-shadow .15s;
+  overflow: hidden;
+}
+.sch-block:hover {
+  opacity: .92;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+}
+
+.sch-block-subj {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sch-block-room {
+  font-size: 10px;
+  color: rgba(255, 255, 255, .8);
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sch-block-fac {
+  font-size: 10px;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sch-block-time {
+  font-size: 9px;
+  color: rgba(255, 255, 255, .6);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── SLOT DETAIL PANEL ── */
+.sch-detail {
+  background: var(--card-bg);
+  border-top: 0.5px solid var(--border);
+  border-radius: 0 0 16px 16px;
+  padding: 16px 20px;
+}
+
+.sch-detail-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.sch-detail-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.sch-detail-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  transition: color .15s;
+}
+.sch-detail-close:hover { color: var(--orange); }
+
+.sch-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sch-detail-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.sch-detail-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.sch-detail-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.sch-detail-edit {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px;
+  border: none;
+  border-radius: 9px;
+  background: var(--orange);
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .18s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
+}
+.sch-detail-edit:hover { background: var(--orange-dark); }
+
+.sch-detail-delete {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px;
+  border: 0.5px solid rgba(231, 76, 60, .3);
+  border-radius: 9px;
+  background: rgba(231, 76, 60, .06);
+  font-size: 12px;
+  font-weight: 600;
+  color: #e74c3c;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .18s;
+}
+.sch-detail-delete:hover { background: rgba(231, 76, 60, .12); }
+
+/* ── MODAL SECTION HEADERS ── */
+.sch-section-header {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--orange);
+  padding: 8px 14px;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 12px;
+}
+
+/* ── COLOR PICKER ── */
+.sch-color-picker {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.sch-color-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform .15s, border-color .15s;
+}
+.sch-color-swatch:hover { transform: scale(1.1); }
+.sch-color-swatch.selected { border-color: var(--text); transform: scale(1.1); }

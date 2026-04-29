@@ -1,0 +1,240 @@
+.sect-root {
+  background: var(--bg);
+  min-height: 100%;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.sect-body {
+  padding: 24px;
+}
+
+.sect-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  background: var(--card-bg);
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.sect-programs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sect-prog-btn {
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sect-prog-btn:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.sect-prog-btn.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
+}
+
+.sect-search {
+  position: relative;
+  flex: 1;
+  max-width: 300px;
+  min-width: 200px;
+}
+
+.sect-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.sect-search input {
+  width: 100%;
+  padding: 10px 12px 10px 36px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text);
+  outline: none;
+  transition: all 0.2s;
+}
+
+.sect-search input:focus {
+  border-color: var(--orange);
+  background: var(--card-bg);
+  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+}
+
+.sect-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sect-ghead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+
+.sect-gtitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sect-gtitle h3 {
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin: 0;
+}
+
+.sect-badge {
+  background: rgba(230, 126, 34, 0.1);
+  color: var(--orange);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(230, 126, 34, 0.2);
+}
+
+.sect-gcount {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.sect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.sect-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.sect-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--orange);
+  box-shadow: 0 12px 24px rgba(230, 126, 34, 0.12);
+}
+
+.sect-card-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sect-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), #d35400);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
+}
+
+.sect-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sect-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.sect-info p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.sect-view-btn {
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.sect-card:hover .sect-view-btn {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sect-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.sect-empty-card {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.sect-empty-card p {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
