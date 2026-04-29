@@ -14,7 +14,7 @@ services:
       - key: APP_DEBUG
         value: "false"
       - key: APP_URL
-        fromContext: op-url
+        sync: false
       - key: LOG_CHANNEL
         value: stderr
       - key: DB_CONNECTION
@@ -22,7 +22,7 @@ services:
       - key: DB_HOST
         sync: false
       - key: DB_PORT
-        value: "3306"
+        value: "24932"
       - key: DB_DATABASE
         sync: false
       - key: DB_USERNAME
@@ -30,9 +30,9 @@ services:
       - key: DB_PASSWORD
         sync: false
       - key: SESSION_DRIVER
-        value: cookie
+        value: database
       - key: CACHE_DRIVER
-        value: file
+        value: database
       - key: FILESYSTEM_DISK
         value: public
       # Aiven MySQL SSL Configuration
