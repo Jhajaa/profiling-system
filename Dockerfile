@@ -37,7 +37,7 @@ COPY . .
 COPY --from=frontend-builder /app/public/build ./public/build
 
 # Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
 # Setup permissions
 RUN mkdir -p storage/app storage/framework/{sessions,views,cache} bootstrap/cache
